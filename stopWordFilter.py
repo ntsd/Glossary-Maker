@@ -16,6 +16,7 @@ def timing(f):
 def stopWordFilter(words):
     """This method Faster but return filter"""
     stopWords = set(stopwords.words("english"))
+    stopWords.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}']) # remove it if you need punctuation
     wordsNotStopWords = filter(lambda w: w not in stopWords, words)
     return wordsNotStopWords
 
@@ -23,6 +24,7 @@ def stopWordFilter(words):
 def stopWordFilter2(words):
     """This slower but return list"""
     stopWords = set(stopwords.words("english"))
+    stopWords.update(['.', ',', '"', "'", '?', '!', ':', ';', '(', ')', '[', ']', '{', '}']) # remove it if you need punctuation
     return [w for w in words if w not in stopWords]
 
 if __name__ == '__main__':
